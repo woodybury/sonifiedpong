@@ -1,0 +1,82 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=.75,maximum-scale=.75,minimum-scale=.75,width=device-width">
+  <!-- sass -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <link rel="stylesheet" href="sass/style.css" type="text/css" media="all" />
+</head>
+
+<body>
+    <!-- Modal Structure -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h1 class="center-align">sonified pong</h1>
+      <div class="row">
+        <div class="col s12">
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div id="instructions" class="collapsible-header" ><i class="material-icons face"></i>instructions</div>
+              <div class="collapsible-body">
+                <h2>Controls:</h2>
+                <ul style="margin-bottom: 2rem;">
+                  <li>Select level with the range</li>
+                  <li>Select control type with the radio buttons</li>
+                  <li>For mouse and touch screen users, swipe left and right to move the paddle. For keyboard users, the left and right arrows control the paddle.</li>
+                  <li>The play button or spacebar starts the game.</li>
+                </ul>
+                <h2>Sounds:</h2>
+                <ul>
+                  <li>The left speaker is the x-axis movement of your paddle. This is a triangle wave with lower freq mapped to the left and higher freq to the right.
+                  <li>The right speaker is the ball movement represented by a square wave. The x-axis is mapped to the freq, low on the left & high on the right. The y-axis is mapped to a sine wave modulator: as the ball gets closer to the bottom, the modulation gets more intense.</li>
+                  <li>Each bounce is cued with a ping pong delayed tone. The freq of the tone is mapped to the y-axis: a bounce off the paddle is a low freq, off the wall is higher, and off the ceiling is highest.</li>
+                <ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <form action="#">
+          <div class="col s12 m6">
+            <label id="level" />level</ label>
+            <p class="range-field">
+              <input type="range" id="level" min="1" max="5" class="active" />
+            </p>
+          </div>
+          <div class="col s12 m6">
+            <p class="center-align">
+              <input name="group1" type="radio" id="mouse"  checked="checked"/>
+              <label for="mouse"><i class="fa fa-mouse-pointer mouse" aria-hidden="true"></i>mouse</label>
+            </p>
+            <p class="center-align">
+              <input name="group1" type="radio" id="keys"  />
+              <label for="keys"><i class="fa fa-keyboard-o" aria-hidden="true"></i>keyboard</label>
+            </p>
+            <p class="center-align">
+              <input name="group1" type="radio" id="finger"  />
+              <label for="finger"><img src="img/click.png" aria-hidden="true">finger</label>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#" id="play" class="btn btn-large z-depth-3 pink lighten-2 modal-close waves-effect waves-light"><i class="material-icons medium right">games</i>PLAY !</a>
+    </div>
+  </div>
+
+  <!-- js -->
+  <script src="//use.fontawesome.com/d85814820d.js"></script>
+  <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+  <script src="//code.responsivevoice.org/responsivevoice.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+  <script src="libraries/p5.play.js"></script>
+
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+
+</body>
+</html>
