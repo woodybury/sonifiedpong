@@ -3,6 +3,7 @@ var speed = 9;
 var score = 0;
 var topScore = 0;
 var playing = false;
+var ballAnimation = "";
 var ballFreq, barFreq, modAmp, modFreq, bounceFreq, bar, ball, tBound, bBound, lBound, rBound;
 
 function setup() {
@@ -36,7 +37,10 @@ function setup() {
   env.setRange(2, 0);
 
   ball = createSprite(width/2, height/2, 50, 50);
-  ball.addAnimation("img/id1.png", "img/id2.png", "img/id3.png", "img/id4.png", "img/id5.png", "img/id6.png", "img/id7.png", "img/id8.png", "img/id9.png", "img/id10.png");
+  for (i = 1; i <= 10; i++) {
+      ballAnimation += "'img/id$numb.png', ".replace('$numb', i);
+  }
+  ball.addAnimation('img/id1.png', 'img/id2.png', 'img/id3.png', 'img/id4.png', 'img/id5.png', 'img/id6.png', 'img/id7.png', 'img/id8.png', 'img/id9.png', 'img/id10.png',);
 
   //bonce sound
   bounceOsc = new p5.Oscillator("triangle");
