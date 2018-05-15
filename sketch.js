@@ -162,6 +162,9 @@ function startGame() {
   ball.setSpeed(speed, random(-50, -75));
 
   if (!playing) {
+    if (getAudioContext().state !== 'running') {
+        getAudioContext().resume();
+    }
     modulator.start();
     ballOsc.start();
     barOsc.start();
