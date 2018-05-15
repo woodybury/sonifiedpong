@@ -162,6 +162,7 @@ function startGame() {
   ball.setSpeed(speed, random(-50, -75));
 
   if (!playing) {
+    // getAudioContext for Chrome update
     if (getAudioContext().state !== 'running') {
         getAudioContext().resume();
     }
